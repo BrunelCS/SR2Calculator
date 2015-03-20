@@ -1,0 +1,12 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "org.apache.poi:poi:3.11"
+    testCompile "junit:junit:4.11"
+}
