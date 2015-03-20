@@ -25,7 +25,7 @@ public class ClassifyExcelProfile {
 	 * @throws FileNotFoundException 
 	 */
 	public static void main(String[] args) throws FileNotFoundException, IOException {
-		Workbook workbook = new HSSFWorkbook(new FileInputStream(new File("/Users/simonkent/Desktop/TestProfile.xls")));
+		Workbook workbook = new HSSFWorkbook(new FileInputStream(new File("./TestProfile.xls")));
 
 		Sheet sheet = workbook.getSheetAt(0);
 		
