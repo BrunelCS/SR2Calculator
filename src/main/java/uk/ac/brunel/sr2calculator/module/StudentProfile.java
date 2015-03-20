@@ -17,8 +17,9 @@ public class StudentProfile {
 		results = new ArrayList<ModuleResult>();
 	}
 	
-	public void addResult(ModuleResult result) {
+	public StudentProfile addResult(ModuleResult result) {
 		results.add(result);
+		return this;
 	}
 	
 	public float calculateLevelWeightedGPA(int level) {
