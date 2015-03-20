@@ -15,20 +15,20 @@ public class FirstClassHonours extends AbstractAward {
 	}
 
 	@Override
-	protected boolean eligibleForClassification(StudentProfile profile) {
+	protected boolean meetsBorderlineCriteria(StudentProfile profile) {
 		double gpa = profile.calculateLevelSR2WeightedGPA();
 		double volume = profile.calculateOverallVolumeForClassification(this);
 		
 		// fail fast
-		if (volume<0.33) {
+		if (volume<0.41) {
 			return false;
 		}
 		
-		if (volume>=0.33 && gpa >=14.5) {
+		if (volume>=0.41 && gpa >=13.5) {
 			return true;
 		}
 		
-		if (volume>=0.41 && gpa >=13.5) {
+		if (volume>=0.45 && gpa >=13.0) {
 			return true;
 		}
 		
@@ -36,7 +36,15 @@ public class FirstClassHonours extends AbstractAward {
 			return true;
 		}
 		
+		if (volume>=0.54 && gpa >=12.0) {
+			return true;
+		}
+		
 		if (volume>=0.58 && gpa >=11.5) {
+			return true;
+		}
+		
+		if (volume>=0.62 && gpa >=11.0) {
 			return true;
 		}
 		
@@ -45,6 +53,11 @@ public class FirstClassHonours extends AbstractAward {
 		}
 		
 		return false;
+	}
+	
+	@Override
+	protected boolean meetsMinimumGPA(StudentProfile profile) {
+		return profile.calculateLevelSR2WeightedGPA() >= 14;
 	}
 
 	@Override
@@ -63,5 +76,7 @@ public class FirstClassHonours extends AbstractAward {
 	public GradePoint getMinimumGradePoint() {
 		return new GradePoint("A-");
 	}
+
+	
 
 }

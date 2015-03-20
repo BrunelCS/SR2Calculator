@@ -15,20 +15,20 @@ public class LowerSecondClassHonours extends AbstractAward {
 	}
 
 	@Override
-	protected boolean eligibleForClassification(StudentProfile profile) {
+	protected boolean meetsBorderlineCriteria(StudentProfile profile) {
 		double gpa = profile.calculateLevelSR2WeightedGPA();
 		double volume = profile.calculateOverallVolumeForClassification(this);
 		
 		// fail fast
-		if (volume<0.33) {
+		if (volume<0.41) {
 			return false;
 		}
 		
-		if (volume>=0.33 && gpa >=8.5) {
+		if (volume>=0.41 && gpa >=7.5) {
 			return true;
 		}
 		
-		if (volume>=0.41 && gpa >=7.5) {
+		if (volume>=0.45 && gpa >=7.0) {
 			return true;
 		}
 		
@@ -36,15 +36,16 @@ public class LowerSecondClassHonours extends AbstractAward {
 			return true;
 		}
 		
-		if (volume>=0.58 && gpa >=5.5) {
+		if (volume>=0.54 && gpa >=6.0) {
 			return true;
 		}
-		
-		if (volume>=0.66 && gpa >=4.5) {
-			return true;
-		}
-		
+			
 		return false;
+	}
+	
+	@Override
+	protected boolean meetsMinimumGPA(StudentProfile profile) {
+		return profile.calculateLevelSR2WeightedGPA() >= 8;
 	}
 
 	@Override

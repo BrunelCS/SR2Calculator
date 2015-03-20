@@ -16,7 +16,7 @@ public abstract class AbstractAward implements Award {
 	 */
 	@Override
 	public boolean canBeAwardedForProfile(StudentProfile profile) {
-		return hasNoFailure(profile) && eligibleForClassification(profile) && hasLowEnoughEGrade(profile); 			
+		return hasNoFailure(profile) && hasLowEnoughEGrade(profile) && (meetsBorderlineCriteria(profile) || meetsBorderlineCriteria(profile)); 			
 	}
 
 	private boolean hasNoFailure(StudentProfile profile) {
@@ -26,7 +26,9 @@ public abstract class AbstractAward implements Award {
 		return true;
 	}
 
-	protected abstract boolean eligibleForClassification(StudentProfile profile);
+	protected abstract boolean meetsMinimumGPA(StudentProfile profile);
+	
+	protected abstract boolean meetsBorderlineCriteria(StudentProfile profile);
 
 	protected abstract boolean hasLowEnoughEGrade(StudentProfile profile);
 }

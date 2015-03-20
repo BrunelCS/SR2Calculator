@@ -15,20 +15,20 @@ public class UpperSecondClassHonours extends AbstractAward {
 	}
 
 	@Override
-	protected boolean eligibleForClassification(StudentProfile profile) {
+	protected boolean meetsBorderlineCriteria(StudentProfile profile) {
 		double gpa = profile.calculateLevelSR2WeightedGPA();
 		double volume = profile.calculateOverallVolumeForClassification(this);
 		
 		// fail fast
-		if (volume<0.33) {
+		if (volume<0.41) {
 			return false;
 		}
 		
-		if (volume>=0.33 && gpa >=11.5) {
+		if (volume>=0.41 && gpa >=10.5) {
 			return true;
 		}
 		
-		if (volume>=0.41 && gpa >=10.5) {
+		if (volume>=0.45 && gpa >=10.0) {
 			return true;
 		}
 		
@@ -36,17 +36,22 @@ public class UpperSecondClassHonours extends AbstractAward {
 			return true;
 		}
 		
-		if (volume>=0.58 && gpa >=8.5) {
+		if (volume>=0.54 && gpa >=9.0) {
 			return true;
 		}
 		
-		if (volume>=0.66 && gpa >=7.5) {
+		if (volume>=0.58 && gpa >=8.5) {
 			return true;
 		}
 		
 		return false;
 	}
 
+	@Override
+	protected boolean meetsMinimumGPA(StudentProfile profile) {
+		return profile.calculateLevelSR2WeightedGPA() >= 11;
+	}
+	
 	@Override
 	protected boolean hasLowEnoughEGrade(StudentProfile profile) {
 		// Max 20 credits @ L2, 0 credits @ L3

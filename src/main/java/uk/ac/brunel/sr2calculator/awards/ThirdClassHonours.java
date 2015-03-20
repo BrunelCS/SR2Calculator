@@ -15,20 +15,13 @@ public class ThirdClassHonours extends AbstractAward {
 	}
 
 	@Override
-	protected boolean eligibleForClassification(StudentProfile profile) {
-		double gpa = profile.calculateLevelSR2WeightedGPA();
-		double volume = profile.calculateOverallVolumeForClassification(this);
-		
-		// fail fast
-		if (volume<0.72) {
-			return false;
-		}
-		
-		if (volume>=0.72 && gpa >=3.3) {
-			return true;
-		}
-		
-		return false;
+	protected boolean meetsBorderlineCriteria(StudentProfile profile) {
+		return true;
+	}
+	
+	@Override
+	protected boolean meetsMinimumGPA(StudentProfile profile) {
+		return true;
 	}
 
 	@Override
