@@ -1,6 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'application'
 
+mainClassName = "uk.ac.brunel.sr2calculator.ClassifyExcelProfile"
 
 repositories {
     jcenter()
