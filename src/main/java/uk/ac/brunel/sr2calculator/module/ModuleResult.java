@@ -9,6 +9,15 @@ public class ModuleResult {
 		this.module = module;
 		this.gradepoint = gradePoint;
 	}
+	
+	/**
+	 * Convenience constructor taking strings
+	 * @param module
+	 * @param grade
+	 */
+	public ModuleResult(String module, String grade) {
+		new ModuleResult(ModuleFactory.getInstance().getModule(module), new GradePoint(grade));
+	}
 
 	public Module getModule() {
 		return module;
