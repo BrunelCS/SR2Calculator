@@ -13,6 +13,7 @@ import uk.ac.brunel.sr2calculator.module.StudentProfile;
 public class CheckResults {
 
 	public static void main(String[] args) throws Exception {
+		// Create a student profile and add some modules and grades
 		StudentProfile profile = new StudentProfile();
 		profile.addResult(new ModuleResult("CS2001_CB","A")
 				).addResult(new ModuleResult("CS2002_CN","D")
@@ -26,9 +27,11 @@ public class CheckResults {
 		        ).addResult(new ModuleResult("CS3004_CB","A")
 		        ).addResult(new ModuleResult("CS3072_CB","A"));	
 		
+		// Print some information calculated from the profile
 		System.out.println("L2 Weighted GPA: " + profile.calculateLevelWeightedGPA(2));
 		System.out.println("L3 Weighted GPA: " + profile.calculateLevelWeightedGPA(2));
 		
+		// Print some logging about awards
 		for (Award award : AwardFactory.getInstance().getAwards()) {
 			System.out.println("Credit Volume at least at " + award.getName() + "=" + profile.calculateOverallVolumeForClassification(award));
 		}		
