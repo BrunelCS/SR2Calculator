@@ -1,3 +1,5 @@
+import play.PlayJava
+
 name := """gpa-calculator"""
 
 version := "1.0-SNAPSHOT"
