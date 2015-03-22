@@ -1,0 +1,53 @@
+@(studentForm: Form[views.formdata.StudentFormData],
+  gpa1:Map[String,Boolean],
+  gpa2:Map[String,Boolean],
+  gpa3:Map[String,Boolean],
+  gpa4:Map[String,Boolean],
+  gpa5:Map[String,Boolean],
+  gpa6:Map[String,Boolean],
+  gpa7:Map[String,Boolean],
+  gpa8:Map[String,Boolean],
+  gpa9:Map[String,Boolean],
+  gpa10:Map[String,Boolean],
+  gpa11:Map[String,Boolean])
+
+@import helper._
+
+@Main("Index") {
+<div class="container">
+
+  @if(flash.containsKey("success")) {
+  <div class="well">
+    <div id="success-message" class="text-success">
+      @flash.get("success")<br><br>
+      @flash.get("l2")<br>
+      @flash.get("l3")<br>
+      @flash.get("overall")<br><br>
+      @flash.get("classification")
+      
+      <hr>
+      
+      @flash.get("volume1")<br>
+      @flash.get("volume2")<br>
+      @flash.get("volume3")<br>
+      @flash.get("volume4")<br>
+      
+    </div>
+  </div>
+  }
+  @if(flash.containsKey("error")) {
+  <div class="well">
+    <div id="error-message" class="text-danger">
+      @flash.get("error")
+  </div>
+    </div>
+  }
+
+  <div class="well">
+    @form(routes.Application.postIndex(), 'class -> "form-horizontal") {
+      @fieldset(studentForm, gpa1, gpa2, gpa3, gpa4, gpa5, gpa6, gpa7, gpa8, gpa9, gpa10, gpa11)
+    }
+  </div>
+</div>
+
+}

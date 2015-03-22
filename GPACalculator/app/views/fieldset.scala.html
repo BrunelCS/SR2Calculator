@@ -1,0 +1,156 @@
+@(studentForm: Form[views.formdata.StudentFormData],
+  gpa1:Map[String,Boolean],
+  gpa2:Map[String,Boolean],
+  gpa3:Map[String,Boolean],
+  gpa4:Map[String,Boolean],
+  gpa5:Map[String,Boolean],
+  gpa6:Map[String,Boolean],
+  gpa7:Map[String,Boolean],
+  gpa8:Map[String,Boolean],
+  gpa9:Map[String,Boolean],
+  gpa10:Map[String,Boolean],
+  gpa11:Map[String,Boolean]
+  )
+
+@import views.html.bootstrap3._
+
+<fieldset>
+  <!-- Header -->
+  <div id="legend">
+    <legend>Level 2 Grades</legend>
+  </div>
+    
+    <table style="width:100%">
+      <tr>
+        <td><b>Level 2 Group Project</b></td>
+        <td width="50%">
+            @select(studentForm("CS2001Grade"),
+              label = "Grade",
+              optionMap = gpa1,
+              isMultiple = false)
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>Software Development and Management</b></td>
+        <td>
+            @select(studentForm("CS2002Grade"),
+              label = "Grade",
+              optionMap = gpa2,
+              isMultiple = false)
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>Usability Engineering</b></td>
+        <td>
+            @select(studentForm("CS2003Grade"),
+              label = "Grade",
+              optionMap = gpa3,
+              isMultiple = false)
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>Option 1</b></td>
+        <td>
+            @select(studentForm("CS2004Grade"),
+              label = "Grade",
+              optionMap = gpa4,
+              isMultiple = false)
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>Option 2</b></td>
+        <td>
+            @select(studentForm("CS2005Grade"),
+              label = "Grade",
+              optionMap = gpa5,
+              isMultiple = false)
+        </td>
+      </tr>
+      
+      <tr>
+        <td><hr></td>
+      </tr>      
+      
+      <tr>
+        <td><b>Placement</b></td>
+        <td>
+            @select(studentForm("CS2555Grade"),
+              label = "Grade",
+              optionMap = gpa6,
+              isMultiple = false)
+        </td>
+      </tr>
+    
+    </table>
+
+<hr>
+
+  <!-- Header -->
+  <div id="legend">
+    <legend>Level 3 Grades</legend>
+  </div>
+    
+    <table style="width:100%">
+      <tr>
+        <td><b>Final Year Project</b></td>
+        <td width="50%">
+            @select(studentForm("CS3072Grade"),
+              label = "Grade",
+              optionMap = gpa7,
+              isMultiple = false)
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>Advanced Topics in CS/IS</b></td>
+        <td>
+            @select(studentForm("CS3001Grade"),
+              label = "Grade",
+              optionMap = gpa8,
+              isMultiple = false)
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>Software Project Management</b></td>
+        <td>
+            @select(studentForm("CS3100Grade"),
+              label = "Grade",
+              optionMap = gpa9,
+              isMultiple = false)
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>Option 1</b></td>
+        <td>
+            @select(studentForm("CS3002Grade"),
+              label = "Grade",
+              optionMap = gpa10,
+              isMultiple = false)
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>Option 2</b></td>
+        <td>
+            @select(studentForm("CS3003Grade"),
+              label = "Grade",
+              optionMap = gpa11,
+              isMultiple = false)
+        </td>
+      </tr>
+      
+    </table>
+
+
+        <div  align="center">
+                <button id="submit" type="submit" value="Submit" class="btn btn-primary">Submit</button>
+        </div>
+
+
+</fieldset>
