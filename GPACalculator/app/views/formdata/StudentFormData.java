@@ -11,6 +11,7 @@ import uk.ac.brunel.sr2calculator.module.StudentProfile;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.text.DecimalFormat;
 
 public class StudentFormData {
 
@@ -94,18 +95,20 @@ public class StudentFormData {
 		profile.addResult(new ModuleResult(ModuleFactory.getInstance().getModule("CS3003_CN"), new GradePoint(CS3003Grade)));	
 		
 		
-	    level2GPA = "L2 Weighted GPA: " + profile.calculateLevelWeightedGPA(2);
-	    level3GPA = "L3 Weighted GPA: " + profile.calculateLevelWeightedGPA(3);
-	    overallGPA = "Overall Weighted GPA: " + profile.calculateLevelSR2WeightedGPA();
+		DecimalFormat f = new DecimalFormat("##.00");
+
+	    level2GPA = "L2 Weighted GPA: " + f.format(profile.calculateLevelWeightedGPA(2));
+	    level3GPA = "L3 Weighted GPA: " + f.format(profile.calculateLevelWeightedGPA(3));
+	    overallGPA = "Overall Weighted GPA: " + f.format(profile.calculateLevelSR2WeightedGPA());
 	    classification = "Classification: " + profile.calculateClassification(true).getName();
 	    
 	    List<Award> awards = AwardFactory.getInstance().getAwards();    
 
-		gradeVolume1 = "Credit Volume at least at " + awards.get(0).getName() + " = " + profile.calculateOverallVolumeForClassification(awards.get(0));
-		gradeVolume2 = "Credit Volume at least at " + awards.get(1).getName() + " = " + profile.calculateOverallVolumeForClassification(awards.get(1));
-		gradeVolume3 = "Credit Volume at least at " + awards.get(2).getName() + " = " + profile.calculateOverallVolumeForClassification(awards.get(2));
-		gradeVolume4 = "Credit Volume at least at " + awards.get(3).getName() + " = " + profile.calculateOverallVolumeForClassification(awards.get(3));
-		gradeVolume5 = "Credit Volume at least at " + awards.get(4).getName() + " = " + profile.calculateOverallVolumeForClassification(awards.get(4));
+		gradeVolume1 = "Credit Volume at least at " + awards.get(0).getName() + " = " + (int) Math.ceil(profile.calculateOverallVolumeForClassification(awards.get(0)) * 100) + "%";
+		gradeVolume2 = "Credit Volume at least at " + awards.get(1).getName() + " = " + (int) Math.ceil(profile.calculateOverallVolumeForClassification(awards.get(1)) * 100) + "%";
+		gradeVolume3 = "Credit Volume at least at " + awards.get(2).getName() + " = " + (int) Math.ceil(profile.calculateOverallVolumeForClassification(awards.get(2)) * 100) + "%";
+		gradeVolume4 = "Credit Volume at least at " + awards.get(3).getName() + " = " + (int) Math.ceil(profile.calculateOverallVolumeForClassification(awards.get(3)) * 100) + "%";
+		gradeVolume5 = "Credit Volume at least at " + awards.get(4).getName() + " = " + (int) Math.ceil(profile.calculateOverallVolumeForClassification(awards.get(4)) * 100) + "%";
 		
   }
   
