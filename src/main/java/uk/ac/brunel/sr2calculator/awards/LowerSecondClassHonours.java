@@ -17,7 +17,7 @@ public class LowerSecondClassHonours extends AbstractAward {
 	@Override
 	protected boolean meetsBorderlineCriteria(StudentProfile profile) {
 		double gpa = profile.calculateLevelSR2WeightedGPA();
-		double volume = profile.calculateOverallVolumeForClassification(this);
+		double volume = profile.calculateOverallProportionForClassification(this);
 		
 		// fail fast
 		if (volume<0.41) {

@@ -49,10 +49,10 @@ public class ClassifyExcelProfile {
 	    		profile.calculateVolumeForGradePointsAtLevels(new GradePoint[] {new GradePoint("E-"), new GradePoint("E"), new GradePoint("E+")}, new int[] {2,3}) + ")");
 	    
 	    System.out.println("% modules at classification (1st, 2:1, 2:2, 3rd) : (" +
-	    		profile.calculateOverallVolumeForClassification(AwardFactory.getInstance().getFirstClass()) + ", " +
-	    		profile.calculateOverallVolumeForClassification(AwardFactory.getInstance().getUpperSecondClass()) + ", " +
-	    		profile.calculateOverallVolumeForClassification(AwardFactory.getInstance().getLowerSecondClass()) + ", " +
-	    		profile.calculateOverallVolumeForClassification(AwardFactory.getInstance().getThirdClass()) + ")");
+	    		profile.calculateOverallProportionForClassification(AwardFactory.getInstance().getFirstClass()) + ", " +
+	    		profile.calculateOverallProportionForClassification(AwardFactory.getInstance().getUpperSecondClass()) + ", " +
+	    		profile.calculateOverallProportionForClassification(AwardFactory.getInstance().getLowerSecondClass()) + ", " +
+	    		profile.calculateOverallProportionForClassification(AwardFactory.getInstance().getThirdClass()) + ")");
 	    		
 	    System.out.println("Failure Volume (L2, L3, Overall) : (" + 
 	    		profile.calculateVolumeForGradePointsAtLevels(new GradePoint[] {new GradePoint("F")}, new int[] {2}) + ", " + 

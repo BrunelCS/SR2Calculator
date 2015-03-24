@@ -1,9 +1,14 @@
 package uk.ac.brunel.sr2calculator.awards;
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import uk.ac.brunel.sr2calculator.module.GradePoint;
 import uk.ac.brunel.sr2calculator.module.StudentProfile;
 
 public abstract class AbstractAward implements Award {
+	protected static final Logger LOGGER = LogManager.getLogger(AbstractAward.class); 
 	
 	protected static final GradePoint[] E_GRADES = 
 			new GradePoint[]{new GradePoint("E+"),new GradePoint("E"),new GradePoint("E-")};
@@ -16,11 +21,13 @@ public abstract class AbstractAward implements Award {
 	 */
 	@Override
 	public boolean canBeAwardedForProfile(StudentProfile profile) {
-		return hasNoFailure(profile) && hasLowEnoughEGrade(profile) && (meetsBorderlineCriteria(profile) || meetsBorderlineCriteria(profile)); 			
+		return hasNoFailure(profile) && hasLowEnoughEGrade(profile) && (meetsMinimumGPA(profile) || meetsBorderlineCriteria(profile)); 			
 	}
 
 	private boolean hasNoFailure(StudentProfile profile) {
-		if (profile.calculateVolumeForGradePointsAtLevels(F_GRADE, new int[]{2,3}) > 0) {
+		int volume = profile.calculateVolumeForGradePointsAtLevels(F_GRADE, new int[]{2,3});
+		LOGGER.info("Failure Volume = " + volume);
+		if (volume > 0) {
 			return false;
 		}
 		return true;

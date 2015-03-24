@@ -17,7 +17,9 @@ public class FirstClassHonours extends AbstractAward {
 	@Override
 	protected boolean meetsBorderlineCriteria(StudentProfile profile) {
 		double gpa = profile.calculateLevelSR2WeightedGPA();
-		double volume = profile.calculateOverallVolumeForClassification(this);
+		double volume = profile.calculateOverallProportionForClassification(this);
+		
+		LOGGER.info("gpa = " + gpa + ", volume@" + this.getName() + "= " + volume);
 		
 		// fail fast
 		if (volume<0.41) {
@@ -57,16 +59,17 @@ public class FirstClassHonours extends AbstractAward {
 	
 	@Override
 	protected boolean meetsMinimumGPA(StudentProfile profile) {
-		return profile.calculateLevelSR2WeightedGPA() >= 14;
+		double gpa = profile.calculateLevelSR2WeightedGPA();
+		LOGGER.info("SR2 Weighted GPA= " + gpa);
+		return  gpa >= 14;
 	}
 
 	@Override
 	protected boolean hasLowEnoughEGrade(StudentProfile profile) {
+		int volume = profile.calculateVolumeForGradePointsAtLevels(AbstractAward.E_GRADES, new int[]{2,3});
+		LOGGER.info("Unweighted E Grade Volume (L2+L3) = " + volume);
 		// No E grade at Level 2 or 3
-		if (profile.calculateVolumeForGradePointsAtLevels(
-				new GradePoint[]{new GradePoint("E+"),new GradePoint("E"),new GradePoint("E-")}, 
-				new int[]{2,3})
-				>0) {
+		if (volume > 0) {
 			return false;
 		}
 		return true;

@@ -22,7 +22,7 @@ public class StudentProfile {
 		return this;
 	}
 	
-	public float calculateLevelWeightedGPA(int level) {
+	public double calculateLevelWeightedGPA(int level) {
 		float gradePointSum = 0.0f;
 		int creditVolume = 0;
 		for (ModuleResult result : results) {
@@ -38,7 +38,7 @@ public class StudentProfile {
 		}
 	}
 	
-	public float calculateLevelSR2WeightedGPA() {
+	public double calculateLevelSR2WeightedGPA() {
 		return (calculateLevelWeightedGPA(2) + 2 * calculateLevelWeightedGPA(3))/3;
 	}
 	
@@ -60,7 +60,7 @@ public class StudentProfile {
 		}
 	}
 	
-	public float calculateOverallVolumeForClassification(Award classification) {
+	public double calculateOverallProportionForClassification(Award classification) {
 		return (calculateVolumeForLevelAndClassification(2, classification)+
 				2*calculateVolumeForLevelAndClassification(3, classification)) / 3;
 	}
