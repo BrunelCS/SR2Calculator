@@ -68,8 +68,24 @@ public class StudentProfileTest {
 		assertEquals("Overall 2.1 Class Volume is Incorrect", 0.5f, profile.calculateOverallProportionForClassification(AwardFactory.getInstance().getUpperSecondClass()), 0.1);
 		assertEquals("Overall 2.2 Class Volume is Incorrect", 0.72f, profile.calculateOverallProportionForClassification(AwardFactory.getInstance().getLowerSecondClass()), 0.1);
 		assertEquals("Overall 3rd Class Volume is Incorrect", 0.89f, profile.calculateOverallProportionForClassification(AwardFactory.getInstance().getThirdClass()), 0.1);
-
 	}
 	
+	@Test 
+	public void testZeroVolume() {
+		assertEquals("Zero Volume 1st", 0.0f, new StudentProfile().calculateOverallProportionForClassification(AwardFactory.getInstance().getFirstClass()), 0.1);
+		assertEquals("Zero Volume 2.1", 0.0f, new StudentProfile().calculateOverallProportionForClassification(AwardFactory.getInstance().getUpperSecondClass()), 0.1);
+		assertEquals("Zero Volume 2.2", 0.0f, new StudentProfile().calculateOverallProportionForClassification(AwardFactory.getInstance().getLowerSecondClass()), 0.1);
+		assertEquals("Zero Volume 2.3", 0.0f, new StudentProfile().calculateOverallProportionForClassification(AwardFactory.getInstance().getThirdClass()), 0.1);
+		assertEquals("Zero Volume Level 3 1st Class Volume", 0.0f, new StudentProfile().calculateVolumeForLevelAndClassification(3, AwardFactory.getInstance().getFirstClass()), 0.1);
+		assertEquals("Zero Volume Level 3 2.1 Class Volume", 0.0f, new StudentProfile().calculateVolumeForLevelAndClassification(3, AwardFactory.getInstance().getUpperSecondClass()), 0.1);
+		assertEquals("Zero Volume Level 3 2.2 Class Volume", 0.0f, new StudentProfile().calculateVolumeForLevelAndClassification(3, AwardFactory.getInstance().getLowerSecondClass()), 0.1);
+		assertEquals("Zero Volume Level 3 3rd Class Volume", 0.0f, new StudentProfile().calculateVolumeForLevelAndClassification(3, AwardFactory.getInstance().getThirdClass()), 0.1);
+	}
+	
+	@Test
+	public void testClassificationCalculation() {
+		assertEquals(AwardFactory.getInstance().getLowerSecondClass(), profile.calculateClassification(false));
+		assertEquals(AwardFactory.getInstance().getNone(), new StudentProfile().calculateClassification(false));
+	}
 
 }
