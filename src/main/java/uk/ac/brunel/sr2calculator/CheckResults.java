@@ -36,7 +36,7 @@ public class CheckResults {
 		
 		// Print some logging about awards
 		for (Award award : AwardFactory.getInstance().getAwards()) {
-			System.out.println("Credit Volume at least at " + award.getName() + "=" + profile.calculateOverallVolumeForClassification(award));
+			System.out.println("Credit Volume at least at " + award.getName() + "=" + profile.calculateOverallProportionForClassification(award));
 		}		
 
 		System.out.println("Overall Weighted GPA: " + profile.calculateLevelSR2WeightedGPA());
