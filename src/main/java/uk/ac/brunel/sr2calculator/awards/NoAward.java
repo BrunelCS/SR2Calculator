@@ -20,4 +20,9 @@ public class NoAward implements Award {
 		return "No Award";
 	}
 
+	@Override
+	public boolean hasRequiredCredits(StudentProfile profile) {
+		return true;
+	}
+
 }

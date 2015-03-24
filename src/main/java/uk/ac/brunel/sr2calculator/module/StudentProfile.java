@@ -7,10 +7,7 @@ import java.util.logging.Logger;
 import uk.ac.brunel.sr2calculator.awards.Award;
 import uk.ac.brunel.sr2calculator.awards.AwardFactory;
 
-public class StudentProfile {
-	
-	//private static Map<Classification, Map<Double, Double>> classificationLookup;
-	
+public class StudentProfile {	
 	private List<ModuleResult> results;
 	
 	public StudentProfile() {
@@ -90,5 +87,15 @@ public class StudentProfile {
 		}
 		}
 		return creditVolume;
+	}
+
+	public int numberOfCreditsAtLevel(int level) {
+		int credits = 0;
+		for (ModuleResult result : results) {
+			if (result.getModule().getLevel()==level) {
+				credits+=result.getModule().getCredits();
+			}
+		}
+		return credits;
 	}
 }

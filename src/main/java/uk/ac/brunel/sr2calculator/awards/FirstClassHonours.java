@@ -80,6 +80,4 @@ public class FirstClassHonours extends AbstractAward {
 		return new GradePoint("A-");
 	}
 
-	
-
 }

@@ -67,6 +67,12 @@ public class AbstractAwardTests extends TestSuite {
 			setL2AndL3FailureVolume(F);
 			setEGradeVolume(level2E, level3E);
 			setVolumeAtClassification(classification, volumeAt);
+			setCredits(120);
+		}
+
+		private void setCredits(int i) {
+			when(profile.numberOfCreditsAtLevel(2)).thenReturn(120);
+			when(profile.numberOfCreditsAtLevel(3)).thenReturn(120);
 		}
 	}
 	

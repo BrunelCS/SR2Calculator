@@ -21,7 +21,7 @@ public abstract class AbstractAward implements Award {
 	 */
 	@Override
 	public boolean canBeAwardedForProfile(StudentProfile profile) {
-		return hasNoFailure(profile) && hasLowEnoughEGrade(profile) && (meetsMinimumGPA(profile) || meetsBorderlineCriteria(profile)); 			
+		return hasRequiredCredits(profile) && hasNoFailure(profile) && hasLowEnoughEGrade(profile) && (meetsMinimumGPA(profile) || meetsBorderlineCriteria(profile)); 			
 	}
 
 	private boolean hasNoFailure(StudentProfile profile) {
@@ -31,6 +31,11 @@ public abstract class AbstractAward implements Award {
 			return false;
 		}
 		return true;
+	}
+	
+	@Override
+	public boolean hasRequiredCredits(StudentProfile profile) {
+		return profile.numberOfCreditsAtLevel(2) >= 120 && profile.numberOfCreditsAtLevel(3) >= 120;
 	}
 
 	protected abstract boolean meetsMinimumGPA(StudentProfile profile);
