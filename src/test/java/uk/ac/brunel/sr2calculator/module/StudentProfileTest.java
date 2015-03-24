@@ -64,10 +64,10 @@ public class StudentProfileTest {
 	
 	@Test
 	public void testOverallVolume() {
-		assertEquals("Overall 1st Class Volume is Incorrect", 0.11f, profile.calculateOverallVolumeForClassification(AwardFactory.getInstance().getFirstClass()), 0.1);
-		assertEquals("Overall 2.1 Class Volume is Incorrect", 0.5f, profile.calculateOverallVolumeForClassification(AwardFactory.getInstance().getUpperSecondClass()), 0.1);
-		assertEquals("Overall 2.2 Class Volume is Incorrect", 0.72f, profile.calculateOverallVolumeForClassification(AwardFactory.getInstance().getLowerSecondClass()), 0.1);
-		assertEquals("Overall 3rd Class Volume is Incorrect", 0.89f, profile.calculateOverallVolumeForClassification(AwardFactory.getInstance().getThirdClass()), 0.1);
+		assertEquals("Overall 1st Class Volume is Incorrect", 0.11f, profile.calculateOverallProportionForClassification(AwardFactory.getInstance().getFirstClass()), 0.1);
+		assertEquals("Overall 2.1 Class Volume is Incorrect", 0.5f, profile.calculateOverallProportionForClassification(AwardFactory.getInstance().getUpperSecondClass()), 0.1);
+		assertEquals("Overall 2.2 Class Volume is Incorrect", 0.72f, profile.calculateOverallProportionForClassification(AwardFactory.getInstance().getLowerSecondClass()), 0.1);
+		assertEquals("Overall 3rd Class Volume is Incorrect", 0.89f, profile.calculateOverallProportionForClassification(AwardFactory.getInstance().getThirdClass()), 0.1);
 
 	}
 	
