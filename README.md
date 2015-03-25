@@ -43,6 +43,12 @@ Then you should `cd` to the GPACalculator directory to run the web-app.  From th
 
 `./activator run` 
 
-to start the application server locally.
+to start the application server locally on port 9000.
 
 For more information about using activator to deploy on a server, please refer to the documentation at the Play Framework website: [https://www.playframework.com/](https://www.playframework.com/).
+
+In essence, you would use a command something like this:
+
+`./activator start -Dhttp.port=80`
+
+Choosing whatever port you wish to host on.
