@@ -1,6 +1,10 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
 apply plugin: 'application'
+
+group = "uk.ac.brunel"
+version = "0.1"
 
 mainClassName = "uk.ac.brunel.sr2calculator.ClassifyExcelProfile"
 
@@ -15,3 +19,22 @@ dependencies {
     testCompile "org.mockito:mockito-core:1.+"
     testCompile "junit:junit:4.11"
 }
+
+publishing {
+   publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+/*
+publishing {
+    repositories {
+        maven {
+            // change to point to your repo, e.g. http://my.org/repo
+            url "USER_HOME$/.m2/repository"
+        }
+    }
+}
+*/
