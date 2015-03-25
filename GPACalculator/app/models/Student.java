@@ -206,8 +206,8 @@ public class Student {
 
   static {
 	    // Valid student. No optional data supplied.
-	    allStudents.add(new Student(1, Grade.findGPA("A"), Grade.findGPA("A"), Grade.findGPA("A"), Grade.findGPA("A"), Grade.findGPA("A"), Grade.findGPA("A"), 
-	    									Grade.findGPA("A"), Grade.findGPA("A"), Grade.findGPA("A"), Grade.findGPA("A"), Grade.findGPA("A")));
+	    allStudents.add(new Student(1, Grade.findGPA("A"), Grade.findGPA("B"), Grade.findGPA("A"), Grade.findGPA("D"), Grade.findGPA("C+"), Grade.findGPA("B-"), 
+	    									Grade.findGPA("A-"), Grade.findGPA("B-"), Grade.findGPA("C+"), Grade.findGPA("A*"), Grade.findGPA("D")));
 	  }
 	
 	/**

@@ -9,7 +9,7 @@
 
       <!--  Load site-specific customizations after bootstrap. -->
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    <link rel="shortcut icon" href="//www.brunel.ac.uk/__brunel_brand/icons/fav/favicon.ico">
 
   </head>
   <body>
@@ -27,6 +27,30 @@
   </div>
 
     @content
+	
+	<footer style="margin-bottom: 30px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <hr>
+                <p>Copyright © Brunel University 2015</p>
+          </div>
+            <br>
+            <table style="width:100%">
+                <tr>
+                    <td><b>Disclaimer</b></td>
+                    <td><b>Acknowledgements</b></td>
+                </tr>
+                <tr>
+                    <td>Results from the calculator should not be treated as the final <div> classification.The calculations have been made using the latest SR2 <div>regulations, however may not be 100% accurate.</td>
+                    <td>AWS in Education Grant Program<div>Other</td>
+                </tr>
+            </table>
+        </div>
+      </div>
+    </footer>
+	
+	
     <script src="http://code.jquery.com/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
