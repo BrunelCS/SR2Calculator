@@ -13,5 +13,5 @@ libraryDependencies ++= Seq(
   anorm,
   cache,
   ws,
-  "uk.ac.brunel" % "sr2Calculator" % "0.1"
+  "uk.ac.brunel" % "sr2calculator" % "0.1"
 )
