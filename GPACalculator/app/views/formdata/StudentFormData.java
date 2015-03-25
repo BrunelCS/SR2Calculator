@@ -104,12 +104,11 @@ public class StudentFormData {
 	    
 	    List<Award> awards = AwardFactory.getInstance().getAwards();    
 
-		gradeVolume1 = "Credit Volume at least at " + awards.get(0).getName() + " = " + (int) Math.ceil(profile.calculateOverallVolumeForClassification(awards.get(0)) * 100) + "%";
-		gradeVolume2 = "Credit Volume at least at " + awards.get(1).getName() + " = " + (int) Math.ceil(profile.calculateOverallVolumeForClassification(awards.get(1)) * 100) + "%";
-		gradeVolume3 = "Credit Volume at least at " + awards.get(2).getName() + " = " + (int) Math.ceil(profile.calculateOverallVolumeForClassification(awards.get(2)) * 100) + "%";
-		gradeVolume4 = "Credit Volume at least at " + awards.get(3).getName() + " = " + (int) Math.ceil(profile.calculateOverallVolumeForClassification(awards.get(3)) * 100) + "%";
-		gradeVolume5 = "Credit Volume at least at " + awards.get(4).getName() + " = " + (int) Math.ceil(profile.calculateOverallVolumeForClassification(awards.get(4)) * 100) + "%";
-		
+		gradeVolume1 = "Credit Volume at least at " + awards.get(0).getName() + " = " + (int) Math.ceil(profile.calculateOverallProportionForClassification(awards.get(0)) * 100) + "%";
+		gradeVolume2 = "Credit Volume at least at " + awards.get(1).getName() + " = " + (int) Math.ceil(profile.calculateOverallProportionForClassification(awards.get(1)) * 100) + "%";
+		gradeVolume3 = "Credit Volume at least at " + awards.get(2).getName() + " = " + (int) Math.ceil(profile.calculateOverallProportionForClassification(awards.get(2)) * 100) + "%";
+		gradeVolume4 = "Credit Volume at least at " + awards.get(3).getName() + " = " + (int) Math.ceil(profile.calculateOverallProportionForClassification(awards.get(3)) * 100) + "%";
+		gradeVolume5 = "Credit Volume at least at " + awards.get(4).getName() + " = " + (int) Math.ceil(profile.calculateOverallProportionForClassification(awards.get(4)) * 100) + "%";
   }
   
    
