@@ -74,7 +74,7 @@ public class Application extends Controller {
 		if (sfd.CS2001Grade == "" || sfd.CS2002Grade == "" || sfd.CS2003Grade == "" || sfd.CS2004Grade == "" || sfd.CS2005Grade == "" || 
 		sfd.CS3072Grade == "" || sfd.CS3001Grade == "" || sfd.CS3100Grade == "" || sfd.CS3002Grade == "" || sfd.CS3003Grade == "" ) {
 		            
-			flash("error", "All field, must be filled in ('Placement' is the only optional field).");
+			flash("error", "All fields must be filled in ('Placement' is the only optional field).");
 			return badRequest(Index.render(
 			        formData,
 					Grade.makeGPAMap1(sfd),
